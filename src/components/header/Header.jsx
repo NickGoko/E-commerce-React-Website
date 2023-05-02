@@ -30,6 +30,7 @@ const nav__links = [
 const Header = () => {
 
     const headerRef = useRef(null)
+    const menuRef = useRef(null)
 
     const stickyHeaderFunc = ( ) => {
         window.addEventListener('scroll', ()=>{
@@ -48,7 +49,7 @@ const Header = () => {
         return () => window.removeEventListener('scroll', stickyHeaderFunc)
     })
 
-
+    const menuToggle = () => menuRef.current.classList.toggle('active__menu')
 
   return (
     <header className="header" ref={headerRef}>
@@ -63,7 +64,7 @@ const Header = () => {
                             {/* <p>Since 2002</p> */}
                         </div>
                     </div>
-                    <div className="navigation">
+                    <div className="navigation" ref={menuRef} onClick={menuToggle}>
                         <ul className="menu">
                         {
                             // Map over the navigation links array and create a list item for each link
@@ -77,25 +78,25 @@ const Header = () => {
 
                         </ul>
                     </div>
-                    <div className="nav_icons">
+                    <div className="nav__icons">
                         {/* Display icons for the shopping cart, favorites, and user account */}
-                        <span className="cart_icon">
+                        <span className="cart__icon">
                             <i class="ri-shopping-bag-line"></i> 
                             <span className="badge">1</span>
                         </span>
-                        <span className="fav_icon">
+                        <span className="fav__icon">
                             <i class="ri-heart-line"></i> 
                             <span className="badge">1</span>
                         </span>
-                        <span className="badge"></span>
-                        <span className='user_icon'> <motion.img whileTap={{scale:1.2}} src={user_icon} alt="user_icon" /> </span>
+                        <span className='user__icon'> 
+                        <motion.img whileHover={{scale:1.2}} src={user_icon} alt="user_icon" className='user__icon' /> 
+                        </span>
                     </div>
-                    <div className="mobile__menu">
+                    <div className=" mobile__menu">
                         {/* Display a menu icon for mobile devices */}
-                        <span>
+                        <span onClick={menuToggle}>
                         <i class="ri-menu-line"></i>
                         </span>
-                    
                     </div>
                  </div>
             </Row>

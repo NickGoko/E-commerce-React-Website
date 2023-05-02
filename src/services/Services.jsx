@@ -26,8 +26,7 @@ const Services = () => {
             </motion.div>
             </Col>
             ))
-          }
-            
+          } 
         </Row>
     </Container>
   </section>

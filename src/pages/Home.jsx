@@ -100,23 +100,22 @@ const [popularProducts, setPopularProducts ] = useState([])
     <section className="timer__counter">
       <Container>
         <Row>
-          <Col lg='6' md='6'>
+          <Col lg='6' md='12' className='count-__down-col'>
             <div className="clock__top-content">
               <h4 className='fs-6 mb-2'>Limited Offers</h4>
               <h3 className='fs-5 mb-3'> Quality Armchairs</h3>
             </div>
           <Clock/>
-          <motion.button whileHover={{scale:1.2}} className="buy__btn"><Link to='/shop'> Visit Store</Link>
+          <motion.button whileHover={{scale:1.2}} className="buy__btn store__btn"><Link to='/shop'> Visit Store</Link>
           </motion.button>
           </Col>
-
-          <Col lg='6' md='6' className='text-end'>
-            <img src={counterImg} alt="" />
+          <Col lg='6' md='12' className='text-end'>
+            <img src={counterImg} alt="" className='counter__img' />
           </Col>
         </Row>
       </Container>
     </section>
-    <section className="new__arrivals mb-1">
+    <section className="new__arrivals ">
       <Container>
         <Row>
         <Col lg='12' className='text-center'>
