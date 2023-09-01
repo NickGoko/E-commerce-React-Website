@@ -5,6 +5,7 @@ import'./header.css'
 import {motion} from 'framer-motion'
 
 import {Container, Row } from 'reactstrap'
+import { useSelector } from 'react-redux'
 
 import logo from '../../assets/images/eco-logo.png'
 import user_icon from '../../assets/images/user-icon.png'
@@ -31,6 +32,8 @@ const Header = () => {
 
     const headerRef = useRef(null)
     const menuRef = useRef(null)
+
+    const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
     const stickyHeaderFunc = ( ) => {
         window.addEventListener('scroll', ()=>{
@@ -82,7 +85,7 @@ const Header = () => {
                         {/* Display icons for the shopping cart, favorites, and user account */}
                         <span className="cart__icon">
                             <i class="ri-shopping-bag-line"></i> 
-                            <span className="badge">1</span>
+                            <span className="badge">{totalQuantity}</span>
                         </span>
                         <span className="fav__icon">
                             <i class="ri-heart-line"></i> 
@@ -93,7 +96,7 @@ const Header = () => {
                         </span>
                     </div>
                     <div className=" mobile__menu">
-                        {/* Display a menu icon for mobile devices */}
+                       {/* Display a menu icon for mobile devices */}
                         <span onClick={menuToggle}>
                         <i class="ri-menu-line"></i>
                         </span>

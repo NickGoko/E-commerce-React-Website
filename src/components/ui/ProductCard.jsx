@@ -3,6 +3,7 @@ import {motion} from 'framer-motion'
 import "../../styles/productCard.css"
 import {Col} from 'reactstrap'
 import {Link} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 import { useDispatch } from 'react-redux'
 import { cartActions } from '../../redux/slices/cartSlice'
@@ -14,15 +15,16 @@ const ProductCard = ({item}) => {
   const dispatch = useDispatch
 
   const addToCart = () => {
-    dispatch(cartActions.addItem({
+    dispatch(
+      cartActions.addItem({
       id: item.id, 
       productName : item.productName,
       price: item.price,
-      image : item.imageUrl
+      image : item.imgUrl
     })
     );
-    
-    alert("product added to cart")
+
+    toast.success("Product added successfully")
   }
   return (
     <Col md='4' lg='3' className='mb-4'>
